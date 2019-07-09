@@ -6,9 +6,16 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create; end
+
   private
 
   def load_user
     @user = User.find_by id: params[:id]
   end
+
 end
