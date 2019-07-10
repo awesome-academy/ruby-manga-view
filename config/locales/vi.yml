@@ -2,6 +2,13 @@ vi:
   language:
     en: "Tiếng Anh"
     vi: "Tiếng Việt"
+  activerecord:
+    attributes:
+      user:
+        name: "Họ tên"
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
   common:
     logo: "Ứng dụng mẫu"
     title: "Đọc truyện tranh online miễn phí"
@@ -75,5 +82,13 @@ vi:
       error: "Thông tin tài khoản hoặc mật khẩu không chính xác"
   shared:
     error_messages:
-      form_error: "Biểu mẫu này chứa "
+      form: "Biểu mẫu này chứa "
       error: "lỗi"
+  users:
+    new:
+      signup: "Đăng ký"
+      success: "Đăng ký thành công"
+      failse: "Đăng ký thất bại"
+    create:
+      fails: "Đăng ký thất bại"
+      success: "Đăng ký thành công"

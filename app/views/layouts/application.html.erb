@@ -8,8 +8,10 @@
   </head>
   <body>
     <%= render "layouts/header" %>
-    <%= render "layouts/flash" %>
-    <%= yield %>
+    <div class="container">
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </div>
     <%= render "layouts/footer" %>
   </body>
   <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>

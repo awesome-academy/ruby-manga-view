@@ -76,19 +76,15 @@
           <% end %>
         <% end %>
         <span class="linedivide1"></span>
-        <%= link_to "Dang ki", "signup" %>
-        <span class="linedivide1"></span>
         <div class="header-wrapicon2">
-          <%= link_to "#" do %>
-            <%= image_tag "icons/icon-header-02.png", class: "header-icon1 js-show-header-dropdown", alt: "ICON" %>
-          <% end %>
+          <%= image_tag "icons/icon-header-02.png",class: "header-icon1 js-show-header-dropdown", alt: "IICON" %>
           <span class="header-icons-noti">0</span>
           <!-- Header cart noti -->
           <div class="header-cart header-dropdown">
             <ul class="header-cart-wrapitem">
               <li class="header-cart-item">
                 <div class="header-cart-item-img">
-                  <%= image_tag "/images/item-cart-01.jpg", alt: "IMG" %>
+                  <%= image_tag "/images/item-cart-01.jpg" %>
                 </div>
 
                 <div class="header-cart-item-txt">
@@ -100,7 +96,7 @@
 
               <li class="header-cart-item">
                 <div class="header-cart-item-img">
-                  <%= image_tag "/images/item-cart-02.jpg", alt: "IMG" %>
+                  <%= image_tag "/images/item-cart-02.jpg" %>
                 </div>
 
                 <div class="header-cart-item-txt">
@@ -117,7 +113,7 @@
 
             <div class="header-cart-buttons">
               <div class="header-cart-wrapbtn">
-                <%= link_to "#", class: "flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" do %>
+              <%= link_to "#", class: "flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" do %>
                   <%= t ".button_left" %>
                 <% end %>
               </div>
