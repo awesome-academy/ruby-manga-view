@@ -7,10 +7,28 @@
 
     <span class="timestamp">
       <%= time_ago_in_words comment.created_at %>
-      <% if comment.user == current_user %>
-        <%= link_to t(".del"), comment, method: :delete, remote: true,
-          data: { confirm: t(".delete_confirm") }, class: "delete-comment" %>
+
+      <% if logged_in? %>
+        <button class="rep" id="rep-<%= comment.id %>">Reply</button>
+
+        <% if comment.user == current_user %>
+          | <%= link_to t(".del"), comment, method: :delete, remote: true,
+            data: { confirm: t(".delete_confirm") }, class: "delete-comment" %>
+        <% end %>
       <% end %>
     </span>
   </div>
 </div>
+<div class="row comment-reply" id="comment-reply-<%= comment.id %>">
+  <div class="col-md-12">
+    <%= render "comments/form_comment", chapter: chapter, parent_id: comment.id,
+      comment_new: comment_new %>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#rep-<%= comment.id %>").click(function(){
+      $("#comment-reply-<%= comment.id %>").toggle(500);
+    });
+  });
+</script>

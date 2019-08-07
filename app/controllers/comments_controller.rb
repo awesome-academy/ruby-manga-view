@@ -1,10 +1,20 @@
 class CommentsController < ApplicationController
-  before_action :load_chapter, only: :create
+  before_action :load_chapter, only: [:create, :new]
   before_action :require_login, only: %i(create destroy)
   before_action :correct_comment, only: :destroy
 
+  def new
+    @comment = Comment.new parent_id: params[:parent_id]
+  end
+
   def create
-    @comment = @chapter.comments.build comment_params
+    if params[:comment][:parent_id].to_i > 0
+      parent = Comment.find_by id: params[:comment].delete(:parent_id)
+      @comment = parent.children.build comment_params
+    else
+      @comment = Comment.new comment_params
+    end
+    @comment.chapter_id = @chapter.id
     @comment.user_id = current_user.id
 
     if @comment.save

@@ -78,4 +78,14 @@ $blue: #3498db;
       }
     }
   }
+  .replies {
+    margin-left: 50px;
+    .replies .replies {
+      margin-left: 0;
+    }
+  }
+}
+
+.comment-reply {
+  display: none;
 }

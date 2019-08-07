@@ -331,8 +331,6 @@ en:
       report_error: "Report"
       turn_light: "Turn light"
       unfollow: "Unfollow"
-      add_comment: "Add comment ..."
-      post: "Post"
       comment_for: "Comment for"
   relationships:
     load_comic:
@@ -347,6 +345,9 @@ en:
       delete_confirm: "You sure?"
     correct_comment:
       not_found: "Comment not found!!"
+    form_comment:
+      add_comment: "Add comment ..."
+      post: "Post"
   followings:
     index:
       title: "Followings"
