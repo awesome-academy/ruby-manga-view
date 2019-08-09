@@ -1,1 +1,2 @@
 $('#like_form').html('<%= j render("comics/unlike", comic: @comic) %>');
+$('#liked').html('<%= @comic.likes.size %>&emsp;');

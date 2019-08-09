@@ -1,0 +1,5 @@
+<%= link_to relationship_path(load_comic_following(comic),
+  follow: Settings.follow), method: :delete, remote: true do %>
+  <i class="fa fa-heart icon_heart"></i>
+  <span class="control-see"><%= t ".unfollow" %></span>
+<% end %>

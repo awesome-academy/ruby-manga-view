@@ -36,7 +36,7 @@ en:
       sign_up: "Sign Up"
       sign_up_now: "Sign up & get deals"
       join_now: "Join to receive 10 welcome tickets"
-      alright: "Welcome to MangaB"
+      alright: "Welcome to Manga Plus"
       alright_content: "Read manga online for free in high quality and most full"
     comic_slide:
       manga_updated: "Latest Update"
@@ -328,12 +328,14 @@ en:
     show:
       home: "Home"
       empty: "Huhmm! Chapter is empty!"
-      report_error: "Report"
-      turn_light: "Turn light"
       unfollow: "Unfollow"
       add_comment: "Add comment ..."
       post: "Post"
       comment_for: "Comment for"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
   relationships:
     load_comic:
       not_found: "Comic is not found!"

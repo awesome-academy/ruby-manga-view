@@ -10,6 +10,7 @@ class ComicsController < ApplicationController
     @chapters = @comic.chapters.recent_upload.page(params[:page])
                       .per Settings.chapter.for_user_per_page
     @trendding = Comic.popular.page.per Settings.comic.trendding_right
+    @categories = Category.sort_by_name
   end
 
   private

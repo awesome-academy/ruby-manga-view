@@ -80,7 +80,8 @@ document.addEventListener('turbolinks:load', function () {
       }
     });
   });
-  $('.story-see-footer').hide();
+
+  $('.story-see-footer').show();
   var prevScrollpos = window.pageYOffset;
   window.onscroll = function () {
     var currentScrollpos = window.pageYOffset;
@@ -92,6 +93,7 @@ document.addEventListener('turbolinks:load', function () {
     }
     prevScrollpos = currentScrollpos;
   };
+
   $('.story-item').children('.more-info').hide();
   $('.story-item').children('.more-info').attr("visibility", "hidden");
   $('.story-item').hover(

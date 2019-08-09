@@ -1,2 +1,4 @@
 $('#follow_form').html('<%= j render("comics/unfollow", comic: @comic) %>');
 $('.block2-overlay').children('#<%= @comic.id %>').html('<%= j render("shared/unfollow", comic: @comic) %>');
+$('#followed').html('<%= @comic.following.size %>&emsp;');
+$('#footer_follow').html('<%= j render("chapters/unfollow", comic: @comic) %>');

@@ -14,7 +14,8 @@
                 <time class="small">
                   [
                     <%= t ".updated_at" %>:
-                    <%= distance_of_time_in_words(Time.now, @comic.chapters.last.updated_at) %>
+                    <%= distance_of_time_in_words(Time.now,
+                          @comic.chapters.last.updated_at) %>
                     <%= t ".ago" %>
                   ]
                 </time>
@@ -50,9 +51,13 @@
                           <i class="fa fa-rss"></i>&nbsp;<%= t ".status" %>
                         </p>
                         <% if "finished" == @comic.status %>
-                          <p class="col-md-8 col-xs-8 text-danger"><%= t ".finished" %></p>
+                          <p class="col-md-8 col-xs-8 text-danger">
+                            <%= t ".finished" %>
+                          </p>
                         <% else %>
-                          <p class="col-md-8 col-xs-8 text-warning"><%= t ".continue" %></p>
+                          <p class="col-md-8 col-xs-8 text-warning">
+                            <%= t ".continue" %>
+                          </p>
                         <% end %>
                       </li>
                       <li class="status row">
@@ -63,13 +68,13 @@
                           <span class="sp01">
                             <i class="fa fa-thumbs-up"></i>
                           </span>
-                          <span class="sp02 number-like">
+                          <span class="sp02 number-like" id="liked">
                             <%= @comic.likes.size %>&emsp;
                           </span>
                           <span class="sp01">
                             <i class="fa fa-heart"></i>
                           </span>
-                          <span class="sp02">
+                          <span class="sp02" id="followed">
                             <%= @comic.following.size %>&emsp;
                           </span>
                           <span class="sp01">
@@ -90,10 +95,14 @@
                       </li>
                     </ul>
                     <div class="read-action mrt10 liparent row">
-                      <div class="col-md-7">
+                      <div class="col-md-6">
                         <li class="li01">
-                          <%= link_to "#" do %>
-                            <i class="fa fa-book"></i>&nbsp;<%= t ".first_read" %>
+                          <% if @comic.chapters.size > 1 %>
+                            <%= link_to comic_chapter_path(@comic,
+                                          @comic.chapters.first) do %>
+                              <i class="fa fa-book"></i>&nbsp;
+                              <%= t ".first_read" %>
+                            <% end %>
                           <% end %>
                         </li>
                         <% if logged_in? %>
@@ -102,16 +111,21 @@
                           <li class="li02">
                             <%= link_to login_path, class: "pd-l-0" do %>
                               <span class="btn-follow-parent">
-                                <i class="fa fa-heart-o"></i>&nbsp;<%= t ".follow" %>
+                                <i class="fa fa-heart-o"></i>&nbsp;
+                                <%= t ".follow" %>
                               </span>
                             <% end %>
                           </li>
                         <% end %>
                       </div>
-                      <div class="col-md-5">
+                      <div class="col-md-6">
                         <li class="li04">
-                          <%= link_to "#" do %>
-                            <i class="fa fa-paper-plane"></i>&nbsp;<%= t ".last_read" %>
+                          <% if @comic.chapters.size > 2 %>
+                            <%= link_to comic_chapter_path(@comic,
+                                          @comic.chapters.last) do %>
+                              <i class="fa fa-paper-plane"></i>&nbsp;
+                              <%= t ".last_read" %>
+                            <% end %>
                           <% end %>
                         </li>
                         <% if logged_in? %>
@@ -120,7 +134,8 @@
                           <li class="li03">
                             <%= link_to login_path, class: "pd-l-0" do %>
                               <span class="btn-follow-parent">
-                                <i class="fa fa-thumbs-o-up"></i>&nbsp;<%= t ".like" %>
+                                <i class="fa fa-thumbs-o-up"></i>&nbsp;
+                                <%= t ".like" %>
                               </span>
                             <% end %>
                           </li>
@@ -145,7 +160,9 @@
           <div class="item-blog p-b-20">
             <div class="item-blog-txt p-t-33 block02">
               <div class="title p-b-11">
-                  <h2 class="story-detail-title m-text24"><%= t ".list_chapter" %></h2>
+                  <h2 class="story-detail-title m-text24">
+                    <%= t ".list_chapter" %>
+                  </h2>
               </div>
               <div class="s-text8 flex-w flex-m p-b-21">
                 <span>
@@ -190,7 +207,8 @@
           <ul class="bgwhite">
             <% @trendding.each do |item| %>
               <li class="flex-w p-b-20">
-                <%= link_to "#", class: "dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4" do %>
+                <%= link_to comic_path(item), class: "dis-block wrap-pic-w
+                              w-size22 m-r-20 trans-0-4 hov4" do %>
                   <% if item.thumb.present? %>
                     <%= image_tag item.thumb.url, class: "trendding_thumb" %>
                   <% else %>
@@ -198,7 +216,7 @@
                   <% end %>
                 <% end %>
                 <div class="w-size23 p-t-5">
-                  <%= link_to "#", class: "s-text20" do %>
+                  <%= link_to comic_path(item), class: "s-text20" do %>
                     <%= item.name %>
                   <% end %>
                 </div>
@@ -209,11 +227,10 @@
             <%= t ".tags" %>
           </h4>
           <div class="wrap-tags flex-w">
-            <%= link_to "Fashion", "#", class: "tag-item" %>
-            <%= link_to "Action", "#", class: "tag-item" %>
-            <%= link_to "Shounen", "#", class: "tag-item" %>
-            <%= link_to "Horro", "#", class: "tag-item" %>
-            <%= link_to "Echhi", "#", class: "tag-item" %>
+            <% @categories.each do |tag| %>
+              <%= link_to "#{tag.name}-(#{tag.comics.size})",
+                    category_path(tag), class: "tag-item" %>
+            <% end %>
           </div>
         </div>
       </div>

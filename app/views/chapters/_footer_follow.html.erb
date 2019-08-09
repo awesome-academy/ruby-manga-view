@@ -1,0 +1,7 @@
+<span id="footer_follow">
+  <% if current_user.following? comic %>
+    <%= render "chapters/unfollow", comic: comic %>
+  <% else %>
+    <%= render "chapters/follow", comic: comic %>
+  <% end %>
+</span>

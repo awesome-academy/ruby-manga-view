@@ -36,7 +36,7 @@ vi:
       sign_up: "Đăng ký"
       sign_up_now: "Đăng ký & nhận ưu đãi"
       join_now: "Tham gia với chúng tôi ngay để có thể  bình luận và theo dõi truyện"
-      alright: "Chào mừng đến với MangaB"
+      alright: "Chào mừng đến với Manga Plus"
       alright_content: "Đọc truyện manga miến phí với chất lượng tốt nhất và đầy đủ nhất"
     comic_slide:
       manga_updated: "Mới cập nhật"
@@ -290,7 +290,7 @@ vi:
       follow: "Theo dõi"
       followers: "người dã theo dõi"
       first_read: "Đọc từ đầu"
-      last_read: "Đọc tiếp"
+      last_read: "Đọc mới nhất"
       like: "Thích"
       content: "Nội dung"
       list_chapter: "Danh sách chương"
@@ -314,12 +314,14 @@ vi:
     show:
       home: "Trang chủ"
       empty: "Huhmm! Chapter này không có ảnh nào!"
-      report_error: "Báo lỗi"
-      turn_light: "Bật đèn"
       unfollow: "Huỷ theo dõi"
       add_comment: "Thêm bình luận ..."
       post: "Đăng"
       comment_for: "Bình luận về"
+    follow:
+      follow: "Theo dõi"
+    unfollow:
+      unfollow: "Hủy theo dõi"
   relationships:
     load_comic:
       not_found: "Không tìm thấy truyện!"

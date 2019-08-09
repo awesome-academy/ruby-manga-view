@@ -1,6 +1,8 @@
 $('#follow_form').html('<%= j render("comics/follow", comic: @comic) %>');
 $('.block2-overlay').children('#<%= @comic.id %>').html('<%= j render("shared/follow", comic: @comic) %>');
 $('#unfollow').html('<%= j render("followings/comic", object: @followes) %>');
+$('#followed').html('<%= @comic.following.size %>&emsp;');
+$('#footer_follow').html('<%= j render("chapters/follow", comic: @comic) %>');
 
 $('.story-item').children('.more-info').hide();
 $('.story-item').children('.more-info').attr("visibility", "hidden");

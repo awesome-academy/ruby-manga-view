@@ -2,6 +2,78 @@
 
 <div class="main-content">
   <div class="pc-banner-full"></div>
+  <section class="story-see-footer has-background-white on" id= "nav-scroll">
+    <div class="container">
+      <div class="level">
+        <div class="level-left">
+          <ul class="list-01">
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>
+                <span class="control-see"><%= t ".home" %></span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="select-custom level">
+           <div class="prev level-right">
+            <% if @chapter.relate?(@chapter.prev) %>
+              <%= link_to comic_chapter_path(@chapter.comic, @chapter.prev) do %>
+                <i class="fa fa-arrow-circle-left"></i>
+              <% end %>
+            <% else %>
+              <%= link_to "#", class: "disable" do %>
+                <i class="fa fa-arrow-circle-left"></i>
+              <% end %>
+            <% end %>
+            </div>
+          <div class="dropdown select-custom">
+            <%= link_to "", class: "dropdown-toggle",
+                  "data-toggle": "dropdown"  do %>
+              <%= @chapter.name %>
+            <% end %>
+            <div class="dropdown-menu scrollable-menu">
+              <% @chapter.comic.chapters.each do |chapter| %>
+                <% if chapter == @chapter %>
+                  <%= link_to chapter.name, "",class: "dropdown-item text-primary" %>
+                <% else %>
+                  <%= link_to chapter.name, comic_chapter_path(chapter.comic, chapter),
+                        class: "dropdown-item" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="next level-right">
+            <% if @chapter.relate?(@chapter.next) %>
+              <%= link_to comic_chapter_path(@chapter.comic, @chapter.next),
+                           class: "link-next-chap" do %>
+                <i class="fa fa-arrow-circle-right"></i>
+              <% end %>
+            <% else %>
+              <%= link_to "#", class: "disable" do %>
+                <i class="fa fa-arrow-circle-right"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="level-right">
+          <ul class="list-01">
+            <li>
+              <% if logged_in? %>
+                <%= render "footer_follow", comic: @chapter.comic %>
+              <% else %>
+                <%= link_to login_path, class: "subscribeBook" do %>
+                  <i class="fa fa-heart"></i>
+                  <span class="control-see"><%= t ".unfollow" %></span>
+                <% end %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
   <div class="story-see">
     <div class="story-see-main">
       <div class="box-detail">
@@ -43,15 +115,19 @@
       </div>
       <div class="wrap-comments">
         <div class="comment-head">
-          <div class="head-content"><%= t(".comment_for") %> <%= @chapter.comic.name %> - <%= @chapter.name %></div>
+          <div class="head-content">
+            <%= t ".comment_for" %>
+            <%= @chapter.comic.name %> - <%= @chapter.name %>
+          </div>
         </div>
         <% if logged_in? %>
           <div class="post-comment">
             <%= form_for @comment, remote: true do |f| %>
               <%= render "shared/error_messages", object: f.object %>
               <%= hidden_field_tag :chapter_id, @chapter.id %>
-              <%= f.text_area :content, placeholder: t(".add_comment"), class: "form-control comment-content", id: "comment-content" %>
-
+              <%= f.text_area :content, placeholder: t(".add_comment"),
+                                        class: "form-control comment-content",
+                                        id: "comment-content" %>
               <div class="button-comment">
                 <%= f.submit t(".post"), class: "btn btn-primary" %>
               </div>
@@ -65,57 +141,5 @@
       </div>
     </div>
   </div>
-  <section class="story-see-footer has-background-white on" id= "nav-scroll">
-    <div class="container">
-      <div class="level">
-        <div class="level-left">
-          <ul class="list-01">
-            <li>
-              <%= link_to root_path do %>
-                <i class="fa fa-home"></i>
-                <span class="control-see"><%= t ".home" %></span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#", id: "faul" do %>
-                <i class="fa fa-exclamation-circle"></i>
-                <span class="control-see"><%= t ".report_error" %></span>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-        <div class="center level">
-          <%= link_to "#" ,class: "disable" do %>
-            <i class="fa fa-arrow-circle-left"></i>
-          <% end %>
-          <select class="selectEpisode">
-            <option selected="selected" value="#">
-              <%= @chapter.name %>
-            </option>
-          </select>
-          <div class="next level-right">
-            <%= link_to "#", class: "link-next-chap" do %>
-              <i class="fa fa-arrow-circle-right"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="level-right">
-          <ul class="list-01">
-            <li>
-              <%= link_to "#", class: "light-see" do %>
-                <i class="fa fa-adjust"></i>
-                <span class="control-see"><%= t ".turn_light" %></span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#", class: "subscribeBook" do %>
-                <i class="fa fa-heart"></i>
-                <span class="control-see"><%= t ".unfollow" %></span>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+
 </div>

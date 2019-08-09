@@ -1,0 +1,5 @@
+<%= link_to relationships_path( init_follow, comic_id: comic.id,
+    follow: Settings.follow), method: :post, remote: true do %>
+  <i class="fa fa-heart-o icon_heart"></i>
+  <span class="control-see"><%= t ".follow" %></span>
+<% end %>
