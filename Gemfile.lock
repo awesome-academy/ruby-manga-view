@@ -66,6 +66,9 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    closure_tree (7.0.0)
+      activerecord (>= 4.2.10)
+      with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.5)
     config (2.0.0)
       activesupport (>= 4.2)
@@ -491,6 +494,8 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    with_advisory_lock (4.0.0)
+      activerecord (>= 4.2)
     xml-simple (1.1.5)
     xmlrpc (0.3.0)
 
@@ -505,6 +510,7 @@ DEPENDENCIES
   bootstrap4-kaminari-views
   byebug
   carrierwave
+  closure_tree
   config
   factory_bot_rails
   faker

@@ -317,8 +317,6 @@ vi:
       report_error: "Báo lỗi"
       turn_light: "Bật đèn"
       unfollow: "Huỷ theo dõi"
-      add_comment: "Thêm bình luận ..."
-      post: "Đăng"
       comment_for: "Bình luận về"
   relationships:
     load_comic:
@@ -333,6 +331,9 @@ vi:
       delete_confirm: "Bạn chắc chứ?"
     correct_comment:
       not_found: "Không tìm thấy bình luận!!"
+    form_comment:
+      add_comment: "Thêm bình luận ..."
+      post: "Đăng"
   followings:
     index:
       title: "Theo dõi"

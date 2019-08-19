@@ -19,3 +19,4 @@
 //= require custom
 //= require bootstrap
 //= require turbolinks
+//= require comment

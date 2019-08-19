@@ -46,21 +46,11 @@
           <div class="head-content"><%= t(".comment_for") %> <%= @chapter.comic.name %> - <%= @chapter.name %></div>
         </div>
         <% if logged_in? %>
-          <div class="post-comment">
-            <%= form_for @comment, remote: true do |f| %>
-              <%= render "shared/error_messages", object: f.object %>
-              <%= hidden_field_tag :chapter_id, @chapter.id %>
-              <%= f.text_area :content, placeholder: t(".add_comment"), class: "form-control comment-content", id: "comment-content" %>
-
-              <div class="button-comment">
-                <%= f.submit t(".post"), class: "btn btn-primary" %>
-              </div>
-            <% end %>
-          </div>
+          <%= render "comments/form_comment", chapter: @chapter, parent_id: nil, comment_new: @comment %>
         <% end %>
         <div class="comments-list" id="comments-list">
-          <%= render @comments %>
-          <%= paginate @comments, theme: "twitter-bootstrap-4", remote: true %>
+          <%= comments_tree_for @comments, @chapter, @comment %>
+          <%#= paginate @comments, theme: "twitter-bootstrap-4", remote: true %>
         </div>
       </div>
     </div>
