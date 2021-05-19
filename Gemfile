@@ -22,7 +22,7 @@ gem "lightbox2-rails"
 gem "mini_magick", "4.7.0"
 gem "momentjs-rails"
 gem "popper_js", "~> 1.14.5"
-gem "puma", "~> 3.11"
+gem "puma", "~> 4.3"
 gem "rails", "~> 5.2.3"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
